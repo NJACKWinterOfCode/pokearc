@@ -2777,21 +2777,32 @@
   background-color: var(--md-theme-default-tooltip-on-background, rgba(255, 255, 255, 0.9)); }
 
 
+
+
+
+/*Extra additions*/
+
+.md-title{
+  font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.md-card .md-card-header .md-subhead {
+ margin-top: 5%;
+}
+
 .light-theme .md-list .md-icon,.light-theme .md-list .md-list-item-text, .light-theme .md-card .md-card-header .md-subhead, .light-theme .md-card span, .light-theme .md-card li {
-  color: rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 0.8);
  text-shadow: none;
  font-weight: bold;
 }
 .light-theme .md-card .md-card-header .md-title {
   color: rgba(0, 0, 0, 1);
- text-shadow: 1px 1px 1px #222222;
- letter-spacing: 0.09em;
+ text-shadow: none;
 }
 
 .light-theme .md-card .md-card-header .md-subhead {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgb(0, 0, 0);
  font-weight: bold;
- margin-top: 5%;
  letter-spacing: 0.09em;
 }
 .light-theme .md-list .md-list-item .md-inset {
@@ -2803,3 +2814,67 @@
 .light-theme .md-list .md-list-item-text {
   letter-spacing: 0.16em;
 }
+
+
+.light-theme .md-card {
+  border: 1.5px solid rgb(0,0,50);
+  border-top: 0;
+}
+
+.light-theme .md-card-header {
+  border-bottom: 1.5px solid rgb(0,0,50);
+  padding: 0 0 5% 0;
+  border-top: 1.5px solid rgb(0,0,100);
+  background: linear-gradient( #fefefe, #bebebe);
+}
+
+.light-theme img {
+  border-radius: 100%;
+  margin: 6%;
+  background: #eee;
+  border-top: 0;
+}
+.light-theme .md-card-content{
+  border-top: 1.5px solid rgb(0,0,50);
+}
+
+.light-theme .md-card-expand-content li, .light-theme .md-card-expand-content div{
+  border-bottom: 1.5px solid #ababab;
+  width:100%;
+  padding-bottom: 1%;
+}
+
+
+.dark-theme .md-card {
+  border: 1px solid #ccc;
+  border-top: 0;
+}
+
+.dark-theme .md-card-header {
+  border-bottom: 1px solid #ccc;
+  padding: 0 0 5% 0;
+  border-top: 1px solid #ccc;
+  background: linear-gradient( #010101, #212121);
+}
+
+.dark-theme .img {
+  border-radius: 100%;
+  margin: 6%;
+  background: #313131;
+  border-top: 0;
+}
+.dark-theme .md-card-content{
+  border-top: 1px solid #ccc;
+}
+
+.dark-theme .md-card-expand-content li, .dark-theme .md-card-expand-content div{
+  border-bottom: 1.5px solid #787878;
+  width:100%;
+  padding-bottom: 1%;
+}
+
+
+
+
+
+

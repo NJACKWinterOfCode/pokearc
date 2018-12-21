@@ -5,13 +5,17 @@
       <ul class="layout">
         <li v-for="pokemon in pokemons" :key="pokemon.id" class="card">
           <md-card md-with-hover class="md-elevation-20">
+
+            <md-card-header class="headt">
+              <div class="md-title">{{ pokemon.name }}</div>
+              </md-card-header>
+
             <md-card-media>
-              <img style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
+              <img class="img" style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
             </md-card-media>
 
-            <md-card-header>
-              <div class="md-title">{{ pokemon.name }}</div>
-              <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
+            <md-card-header class="movet">
+            <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
             </md-card-header>
 
             <md-card-expand>
@@ -37,10 +41,11 @@
               <md-card-expand-content>
                 <md-card-content>
                   <span class="md-body-2">
-                    Weight: {{ pokemon.weight }}
-                    <br/>
+                    <div>
+                    Weight: {{ pokemon.weight }}</div>
+                    <div>
                     Base experience: {{ pokemon.base_experience }}
-                    <br/>
+                    </div>
                     <ul  v-for="stat in pokemon.stats">
                       <li class="capitalize">
                         {{ stat.stat.name }} : {{ stat.base_stat }}
@@ -53,7 +58,7 @@
           </md-card>
         </li>
       </ul>
-      <md-button class="md-dense md-raised md-primary" v-on:click='getMorePokemons()'>Load more Pokemons</md-button>
+      <md-button class="md-dense md-raised md-primary more" v-on:click='getMorePokemons()'>Load more Pokemons</md-button>
     </md-content>
   </div>
 </template>
@@ -142,6 +147,7 @@ h2,
 .md-title {
   text-shadow: 2px 2px 5px black;
 }
+
 .contain {
   padding: 0.05%;
 }
@@ -154,7 +160,9 @@ h2,
   display: inline-block;
   vertical-align: top;
   padding-bottom: 2%;
+  margin-bottom:20%;
 }
+
 .md-title,
 .capitalize {
   text-transform: capitalize;
@@ -173,7 +181,7 @@ template {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-.md-button {
+.more {
   margin-bottom: 60%;
 }
 .card {
@@ -184,7 +192,7 @@ template {
   width: 280px;
   }
 
-.md-button {
+.more {
   margin-bottom: 50%;
 }
 }

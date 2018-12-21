@@ -2,16 +2,20 @@
   <div class="container">
     <md-progress-bar id="fav-progress-bar" md-mode="indeterminate"></md-progress-bar>
     <md-content class="md-scrollbar">
-      <ul>
+      <ul class="layout">
         <li v-for="pokemon in pokemons" :key="pokemon.id" class="card">
           <md-card md-with-hover class="md-elevation-20">
+
+            <md-card-header class="headt">
+              <div class="md-title">{{ pokemon.name }}</div>
+              </md-card-header>
+
             <md-card-media>
-              <img style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
+              <img class="img" style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
             </md-card-media>
 
-            <md-card-header>
-              <div class="md-title">{{ pokemon.name }}</div>
-              <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
+            <md-card-header class="movet">
+            <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
             </md-card-header>
 
             <md-card-expand>
@@ -37,10 +41,11 @@
               <md-card-expand-content>
                 <md-card-content>
                   <span class="md-body-2">
-                    Weight: {{ pokemon.weight }}
-                    <br/>
+                    <div>
+                    Weight: {{ pokemon.weight }}</div>
+                    <div>
                     Base experience: {{ pokemon.base_experience }}
-                    <br/>
+                    </div>
                     <ul  v-for="stat in pokemon.stats">
                       <li class="capitalize">
                         {{ stat.stat.name }} : {{ stat.base_stat }}
@@ -115,7 +120,6 @@ ul {
 }
 li {
   display: inline-block;
-  margin: 0 10px;
 }
 .md-body-2, li, h1, h2, .md-title {
   text-shadow: 2px 2px 5px black;
@@ -127,10 +131,12 @@ li {
     height: 480px;
 }
 .md-card {
-    width: 300px;
-    margin: 6px;
-    display: inline-block;
-    vertical-align: top;
+  width: 230px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+  padding-bottom: 2%;
+  margin-bottom:20%;
 }
 .md-title, .capitalize {
   text-transform: capitalize;
@@ -166,5 +172,38 @@ li {
   .card {
     margin: 0 6%;
   }
+}
+
+.card {
+   margin: 0;
+}
+@media all and (min-width: 1500px) {
+  .md-card {
+  width: 280px;
+  }
+}
+@media all and (min-width: 1920px) {
+  .card {
+    margin: 0 1.2%;
+  }
+  .md-card {
+  width: 300px;
+  }
+}
+@media all and (min-width: 2000px) {
+  .card {
+    margin: 0 3%;
+  }
+}
+@media all and (min-width: 3000px) {
+  .card {
+    margin: 0 6%;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 </style>

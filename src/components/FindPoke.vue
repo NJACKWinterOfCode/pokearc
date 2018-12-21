@@ -21,15 +21,20 @@
           <h2 class="md-display-1">You haven't searched yet. Try searching for any ID (numeric between 1 and 802 inclusive) or name of a pokemon, "Charizard".</h2>
         </md-empty-state>
       </div>
-      <md-card md-with-hover v-if="pokemon && !err" class="md-elevation-24">
-        <md-card-media>
-          <img style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
-        </md-card-media>
 
-        <md-card-header>
-          <div class="md-title">{{ pokemon.name }}</div>
-          <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
-        </md-card-header>
+      <md-card md-with-hover v-if="pokemon && !err" class="md-elevation-24">
+
+            <md-card-header class="headt">
+              <div class="md-title">{{ pokemon.name }}</div>
+              </md-card-header>
+
+            <md-card-media>
+              <img class="img" style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
+            </md-card-media>
+
+            <md-card-header class="movet">
+            <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
+            </md-card-header>
 
         <md-card-expand>
           <md-card-actions md-alignment="space-between">
@@ -52,20 +57,22 @@
           </md-card-actions>
 
           <md-card-expand-content>
-            <md-card-content>
-              <span class="md-body-2">
-                Weight: {{ pokemon.weight }}
-                <br/>
-                Base experience: {{ pokemon.base_experience }}
-                <br/>
-                <ul  v-for="stat in pokemon.stats">
-                  <li class="capitalize">
-                    {{ stat.stat.name }} : {{ stat.base_stat }}
-                  </li>
-                </ul>
-              </span>
-            </md-card-content>
-          </md-card-expand-content>
+                <md-card-content>
+                  <span class="md-body-2">
+                    <div>
+                    Weight: {{ pokemon.weight }}</div>
+                    <div>
+                    Base experience: {{ pokemon.base_experience }}
+                    </div>
+                    <ul  v-for="stat in pokemon.stats">
+                      <li class="capitalize">
+                        {{ stat.stat.name }} : {{ stat.base_stat }}
+                      </li>
+                    </ul>
+                  </span>
+                </md-card-content>
+              </md-card-expand-content>
+
         </md-card-expand>
       </md-card>
       <div class="full-control" v-if="pokemon && !err">
@@ -167,12 +174,13 @@ export default {
   .card-expansion {
       height: 480px;
   }
-  .md-card {
-      width: 300px;
-      margin: 4px;
-      vertical-align: bottom;
-      float: right;
-  }
+.md-card {
+  width: 230px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+  padding-bottom: 2%;
+}
   .md-title, .capitalize {
     text-transform: capitalize;
   }
@@ -207,4 +215,41 @@ export default {
     border: 1px solid rgba(#000, .12);
     vertical-align: top;
   }
+
+
+.md-card {
+  width: 230px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+  padding-bottom: 2%;
+  margin-bottom:15%;
+}
+
+.card {
+   margin: 0;
+}
+@media all and (min-width: 1500px) {
+  .md-card {
+  width: 280px;
+  }
+}
+@media all and (min-width: 1920px) {
+  .card {
+    margin: 0 1.2%;
+  }
+  .md-card {
+  width: 300px;
+  }
+}
+@media all and (min-width: 2000px) {
+  .card {
+    margin: 0 3%;
+  }
+}
+@media all and (min-width: 3000px) {
+  .card {
+    margin: 0 6%;
+  }
+}
 </style>
