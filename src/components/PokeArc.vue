@@ -6,7 +6,7 @@
         <li v-for="pokemon in pokemons" :key="pokemon.id" class="card">
           <md-card md-with-hover class="md-elevation-20">
 
-            <md-card-header class="headt">
+            <md-card-header>
               <div class="md-title">{{ pokemon.name }}</div>
               </md-card-header>
 
@@ -14,7 +14,7 @@
               <img class="img" style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
             </md-card-media>
 
-            <md-card-header class="movet">
+            <md-card-header>
             <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
             </md-card-header>
 
@@ -139,13 +139,6 @@ ul {
 }
 li {
   display: inline-block;
-}
-.md-body-2,
-li,
-h1,
-h2,
-.md-title {
-  text-shadow: 2px 2px 5px black;
 }
 
 .contain {

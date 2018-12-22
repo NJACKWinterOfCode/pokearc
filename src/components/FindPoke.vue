@@ -24,7 +24,7 @@
 
       <md-card md-with-hover v-if="pokemon && !err" class="md-elevation-24">
 
-            <md-card-header class="headt">
+            <md-card-header>
               <div class="md-title">{{ pokemon.name }}</div>
               </md-card-header>
 
@@ -32,31 +32,31 @@
               <img class="img" style="height:180px;width:180px;" v-bind:src="(settings.showShiny) ? pokemon.sprites.front_shiny : pokemon.sprites.front_default" alt="People">
             </md-card-media>
 
-            <md-card-header class="movet">
+            <md-card-header>
             <div class="md-subhead">Moves : {{ pokemon.moves.length }}</div>
             </md-card-header>
 
-        <md-card-expand>
-          <md-card-actions md-alignment="space-between">
-            <div>
-              <md-button v-on:click="toggleFavourite(pokemon.id)" class="md-icon-button">
-                  <md-icon v-if="favourites.includes(pokemon.id)">
-                    favorite<md-tooltip md-direction="bottom">Remove from favourites</md-tooltip>
-                  </md-icon>
-                  <md-icon v-else>
-                    favorite_border<md-tooltip md-direction="bottom">Add to favorites</md-tooltip>
-                  </md-icon>
-              </md-button>
-            </div>
+            <md-card-expand>
+              <md-card-actions md-alignment="space-between">
+                <div>
+                  <md-button v-on:click="toggleFavourite(pokemon.id)" class="md-icon-button">
+                      <md-icon v-if="favourites && favourites.includes(pokemon.id)">
+                        favorite<md-tooltip md-direction="bottom">Remove from favourites</md-tooltip>
+                      </md-icon>
+                      <md-icon v-else>
+                        favorite_border<md-tooltip md-direction="bottom">Add to favorites</md-tooltip>
+                      </md-icon>
+                  </md-button>
+                </div>
 
-            <md-card-expand-trigger>
-              <md-button class="md-icon-button">
-                <md-icon>keyboard_arrow_down<md-tooltip md-direction="bottom">Stats</md-tooltip></md-icon>
-              </md-button>
-            </md-card-expand-trigger>
-          </md-card-actions>
+                <md-card-expand-trigger>
+                  <md-button class="md-icon-button">
+                    <md-icon>keyboard_arrow_down<md-tooltip md-direction="bottom">Stats</md-tooltip></md-icon>
+                  </md-button>
+                </md-card-expand-trigger>
+              </md-card-actions>
 
-          <md-card-expand-content>
+              <md-card-expand-content>
                 <md-card-content>
                   <span class="md-body-2">
                     <div>
@@ -72,8 +72,7 @@
                   </span>
                 </md-card-content>
               </md-card-expand-content>
-
-        </md-card-expand>
+            </md-card-expand>
       </md-card>
       <div class="full-control" v-if="pokemon && !err">
         <md-list>
